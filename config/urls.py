@@ -19,11 +19,11 @@ from django.views.generic import TemplateView
 
 import UssdHttp.simulator.views as sim
 from UssdHttp.drivers.django_driver import session_list_view
-import views
+import UssdDemo.views as demo
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', sim.IndexView.as_view()),
-    url(r'^ussd/',views.UssdDriver.as_view()),
+    url(r'^ussd_app/',demo.UssdDriver.as_view()),
     url(r'^session/',session_list_view),
 ]

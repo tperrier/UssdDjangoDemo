@@ -52,7 +52,7 @@ convet_ammount = ussd.screens.FloatQuestion(question="Enter amount in KSH",name=
 class RandomWords(ussd.screens.BaseScreen):
 
     def __init__(self,language):
-        self.words = json.load(open('USSDDemo/data/{}.json'.format(language)))
+        self.words = json.load(open('UssdDemo/data/{}.json'.format(language)))
 
     def render(self,session,context):
         if len(session) == 1:

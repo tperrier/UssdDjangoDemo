@@ -4,4 +4,4 @@ from django.apps import AppConfig
 
 
 class UssddemoConfig(AppConfig):
-    name = 'USSDDemo'
+    name = 'UssdDemo'

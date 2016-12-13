@@ -14,7 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(PROJECT_DIR, ...)
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CONFIG_DIR = os.path.join(PROJECT_DIR,'USSDDemo')
+CONFIG_DIR = os.path.join(PROJECT_DIR,'config')
 
 
 # Quick-start development settings - unsuitable for production
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
 
     # Site Apps
     'UssdHttp',
-    'USSDDemo',
+    'UssdDemo',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -55,12 +55,12 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'USSDDemo.urls'
+ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['USSDDemo/templates'],
+        'DIRS': ['UssdHttp/simulator/static'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -73,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'USSDDemo.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # Database
@@ -105,6 +105,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+# Session Settings
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
