@@ -5,7 +5,7 @@ import UssdHttp as ussd
 class PhoneNumberScreen(ussd.screens.BaseScreen):
 
     def render(self,session,context):
-        return "You're phone number is %s" % session.phone_number
+        return "Your phone number is %s" % session.phone_number
 
 class GuessingGame(ussd.screens.BaseScreen):
 
@@ -43,11 +43,11 @@ class GuessingGame(ussd.screens.BaseScreen):
 class ConvertFinal(ussd.screens.BaseScreen):
 
     def render(self,session,context):
-        converted = session['amount'] * session['currancy'].value
-        return '{0[amount]:.2f} KSH\n=\n{1:.2f} {0[currancy].label}\n\nThansk for using USSD Converter'.format(session,converted)
+        converted = session['amount'] * session['currency'].value
+        return '{0[amount]:.2f} KSH\n=\n{1:.2f} {0[currency].label}\n\nThansk for using USSD Converter'.format(session,converted)
 
-convert_currancy = ussd.screens.SelectOne(labels=['USD','EUR','ZAR'],values=[0.0098,0.0092,0.14],name='currancy',next_screen=ConvertFinal())
-convet_ammount = ussd.screens.FloatQuestion(question="Enter amount in KSH",name="amount",next_screen=convert_currancy)
+convert_currency = ussd.screens.SelectOne(labels=['USD','EUR','ZAR'],values=[0.0098,0.0092,0.14],name='currency',next_screen=ConvertFinal())
+convert_amount = ussd.screens.FloatQuestion(question="Enter amount in KSH",name="amount",next_screen=convert_currency)
 
 class RandomWords(ussd.screens.BaseScreen):
 
@@ -92,7 +92,7 @@ app = ussd.screens.MenuScreen(
     title="Simple USSD Test",
     items = [
         ('Guess A Number', GuessingGame() ),
-        ('Convert KSH', convet_ammount),
+        ('Convert KSH', convert_amount),
         ('Random Swahili Words',RandomWords('swahili') ),
         ('Random Hindi Words', RandomWords('hindi') ),
         ('My Phone Number', PhoneNumberScreen() )
