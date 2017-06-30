@@ -23,7 +23,8 @@ import UssdDemo.views as demo
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', sim.IndexView.as_view()),
-    url(r'^ussd_app/',demo.UssdDriver.as_view()),
-    url(r'^session/',session_list_view),
+    url(r'^$', sim.NiafikraView.as_view()),
+    url(r'^ussd_web/?$',demo.UssdDriver.as_view(transport='Niafikra')),
+    url(r'^ussd/?$',demo.UssdDriver.as_view(transport='Niafikra')),
+    url(r'^session/?$',session_list_view),
 ]
