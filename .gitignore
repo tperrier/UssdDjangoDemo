@@ -1,3 +1,5 @@
 *.pyc
 *.sqlite3
 ignore/
+
+local_settings.py
